@@ -9,6 +9,14 @@ Built using:
 * Tailwindcss
 * Various utils
 
+## Screenshots
+
+### Fx List/Rack List
+![lists](https://github.com/gastrogeek/rixy/blob/master/screenshot1.png?raw=true)
+
+### Fx Controls
+![controls](https://github.com/gastrogeek/rixy/blob/master/screenshot2.png?raw=true)
+
 ## Requirements
 
 * Guitarix (Duh)
