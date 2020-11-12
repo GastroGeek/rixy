@@ -1,0 +1,79 @@
+/* vue sidebar (3rd party overrides) */
+.v-sidebar-menu .vsm--toggle-btn {
+  outline: none;
+}
+
+.v-sidebar-menu .vsm--toggle-btn {
+  order: -1;
+}
+
+.v-sidebar-menu.vsm_collapsed .vsm--list {
+  @apply hidden;
+}
+
+.v-sidebar-menu {
+  @apply bg-secondary !important;
+  @apply  border-r-2 border-primary;
+}
+
+.v-sidebar-menu .vsm--item:last-child {
+  @apply border-b-2 border-primary;
+}
+
+.v-sidebar-menu .vsm--item.vsm--item_open .vsm--item:last-child {
+  border: 0 !important;
+}
+
+.v-sidebar-menu .vsm--dropdown .vsm--list {
+  @apply bg-secondary !important;
+}
+
+.v-sidebar-menu .vsm--list {
+  @apply p-0 !important;
+}
+
+.v-sidebar-menu .vsm--list .vsm--list {
+  @apply border-8 border-secondary !important;
+}
+
+.v-sidebar-menu .vsm--list .vsm--list .vsm--list {
+  @apply border-l-0 border-r-0  !important;
+}
+
+.v-sidebar-menu .vsm--item.vsm--item_open > div > div > div:last-child > div > div {
+  @apply border-b-0 !important;
+}
+
+.v-sidebar-menu .vsm--link.vsm--link_level-1 {
+  @apply border-t-2 border-primary;
+}
+
+.v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1 {
+  @apply border-4 border-r-2 border-primary !important;
+  @apply bg-accent !important;
+}
+
+.v-sidebar-menu .vsm--item_open .vsm--link.vsm--link_level-2 {
+  @apply bg-primary;
+}
+
+.v-sidebar-menu .vsm--header {
+  @apply text-center select-none;
+}
+
+.v-sidebar-menu .vsm--toggle-btn {
+  @apply bg-primary !important;
+}
+
+.v-sidebar-menu .vsm--item.vsm--item_open > div > div > div.vsm--item.vsm--item_open:last-of-type .fx-list-item {
+  @apply border-2 border-b-0 !important;
+}
+
+.v-sidebar-menu .vsm--item.vsm--item_open > div > div > div.vsm--item.vsm--item_open .vsm--list > div:last-of-type .fx-list-item:last-child {
+  @apply border-b-2 !important;
+}
+
+/* vue-swipe-actions (3rd party overrides) */
+.swipeout-content {
+  transition: transform .0s !important;
+}
