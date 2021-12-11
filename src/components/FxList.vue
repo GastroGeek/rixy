@@ -31,7 +31,18 @@
           class="my-2 text-accent"
           icon="undo"
         />
+      </span>
 
+      <span
+        slot="footer"
+        title="Toggle fullscreen mode"
+        class="text-center cursor-pointer"
+        @click="fullscreenMode = !fullscreenMode"
+      >
+        <font-awesome-icon
+          class="my-2 text-accent"
+          :icon="fullscreenMode ? 'compress' : 'expand'"
+        />
       </span>
     </sidebar-menu>
   </div>
@@ -58,7 +69,8 @@ export default {
   data () {
     return {
       mono: [],
-      stereo: []
+      stereo: [],
+      fullscreenMode: false
     }
   },
   computed: {
@@ -140,6 +152,14 @@ export default {
       },
       deep: true,
       immediate: true
+    },
+
+    fullscreenMode (value) {
+      if (value) {
+        document.body.requestFullscreen()
+      } else {
+        document.exitFullscreen()
+      }
     }
   },
   methods: {
