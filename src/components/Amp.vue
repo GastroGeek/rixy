@@ -4,7 +4,7 @@
       class="text-center border-8 border-b-0 border-secondary bg-primary "
     >
       <div
-        class="p-8 text-center border-2 border-b-0 cursor-pointer bg-secondary border-primary rack-list-item"
+        class="flex justify-center items-center text-center border-2 border-b-0 cursor-pointer bg-secondary border-primary rack-list-item"
         @dblclick="showFx"
       >
         <span class="text-white select-none">Amp</span>

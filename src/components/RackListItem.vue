@@ -7,7 +7,7 @@
     <template v-slot="{}">
       <div
         ref="content"
-        class="relative p-3 text-center border-2 border-b-0 cursor-pointer bg-secondary rack-list-item border-primary"
+        class="relative flex justify-center items-center text-center border-2 border-b-0 cursor-pointer bg-secondary rack-list-item border-primary"
         @click="handleItemClick"
         @dblclick="handleItemDoubleClick"
       >
