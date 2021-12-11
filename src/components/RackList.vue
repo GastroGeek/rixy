@@ -127,8 +127,8 @@ export default {
 }
 
 /* pressed */
-.rack-list-mono .rack-list-item.pressed,
-.rack-list-stereo .rack-list-item.pressed {
+.rack-list-mono .rack-list-item:active,
+.rack-list-mono .rack-list-item:active {
   @apply border-4 border-b-2;
 }
 
@@ -153,8 +153,8 @@ export default {
 }
 
 /* pressed */
-.rack-list-mono > div:last-child .rack-list-item.pressed,
-.rack-list-stereo > div:last-child .rack-list-item.pressed {
+.rack-list-mono > div:last-child .rack-list-item:active,
+.rack-list-stereo > div:last-child .rack-list-item:active {
   @apply border-b-4;
 }
 

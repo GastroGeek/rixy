@@ -7,18 +7,9 @@
     <template v-slot="{}">
       <div
         ref="content"
-        v-long-press="500"
-        v-click-helper:250="toggleOrShow"
         class="relative p-3 text-center border-2 border-b-0 cursor-pointer bg-secondary rack-list-item border-primary"
-        :class="{
-          pressed: pressed
-        }"
-        @long-press-start="toggleOrShow($event, true)"
-        @mousedown="pressed = true"
-        @mouseup="pressed = false"
-        @mouseleave="pressed = false"
-        @touchstart="pressed = true"
-        @touchend="pressed = false"
+        @click="handleItemClick"
+        @dblclick="handleItemDoubleClick"
       >
         <span
           class="inline-block text-white truncate select-none label"
@@ -66,15 +57,10 @@
 </template>
 
 <script>
-import ClickHelper from 'vue-click-helper'
-import LongPress from 'vue-directive-long-press'
+const DOUBLE_WORKAROUND_CLICK_TIMEOUT = 250
 
 export default {
   name: 'RackListItem',
-  directives: {
-    ClickHelper,
-    LongPress
-  },
   props: {
     fx: {
       type: Object,
@@ -83,8 +69,8 @@ export default {
   },
   data () {
     return {
-      pressed: false,
-      control: null
+      control: null,
+      doubleClickWorkaroundTimeout: null
     }
   },
   computed: {
@@ -122,14 +108,24 @@ export default {
         this.control = control
       })
     },
-    toggleOrShow (e, isDoubleClick) {
-      if (isDoubleClick) {
-        this.showFx()
-      } else {
-        this.closeAllSwipeActions()
-        this.toggleFxPower()
-      }
+
+    toggleItem () {
+      this.closeAllSwipeActions()
+      this.toggleFxPower()
     },
+
+    handleItemClick () {
+      setTimeout(
+        this.toggleItem,
+        DOUBLE_WORKAROUND_CLICK_TIMEOUT
+      )
+    },
+
+    handleItemDoubleClick () {
+      clearTimeout(this.doubleClickWorkaroundTimeout)
+      this.showFx()
+    },
+
     toggleFxPower () {
       this.$guitarix.sendMessage({
         method: 'set',

@@ -8733,16 +8733,6 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-click-helper@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/vue-click-helper/-/vue-click-helper-0.0.2.tgz#1dd34ebc23a95b4a47d8b9de260cc9464a866076"
-  integrity sha1-HdNOvCOpW0pH2LneJgzJRkqGYHY=
-
-vue-directive-long-press@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-directive-long-press/-/vue-directive-long-press-1.1.0.tgz#ef30e3aa846c81b843a28589f288a7496a852d0a"
-  integrity sha512-OHhR4N1kuuKaK87SPmqkcm5Y81HjXgv5DfWr96flIkTYveWps1AozKiNrabsIirq+ibSZWFr3IUr0en+Ce3fAA==
-
 vue-eslint-parser@^7.0.0:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.1.1.tgz#c43c1c715ff50778b9a7e9a4e16921185f3425d3"
