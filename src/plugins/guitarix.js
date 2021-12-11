@@ -11,10 +11,15 @@ const { logger } = utils
 
 const GUITARIX_NAMESPACE = 'guitarix'
 
-const { VUE_APP_GUITARIX_IGNORE_FX: FX_IGNORE_LIST } = process.env
+const {
+  VUE_APP_GUITARIX_IGNORE_FX: FX_IGNORE_LIST,
+  VUE_APP_WEBSOCKET_USE_BINARY_FORMAT: WEBSOCKET_USE_BINARY_FORMAT
+} = process.env
 
 // clean up fx ids
 const fxIgnoreList = FX_IGNORE_LIST.split(',').map(fx => fx.trim())
+
+const useWebsocketBinaryFormat = ['1', 'true', true].includes(WEBSOCKET_USE_BINARY_FORMAT.trim())
 
 const methodsRequiringIds = [
   'banks',
@@ -92,9 +97,11 @@ class GuitarixSocket {
     this._attemptReconnect()
   }
 
-  _onMessage (response) {
+  async _onMessage (response) {
     try {
-      var msg = JSON.parse(response.data)
+      const jsonString = useWebsocketBinaryFormat ? await response.data.text() : response.data
+
+      var msg = JSON.parse(jsonString)
       logger('RX: ', msg)
     } catch (e) {
       logger('EX: ', e)
@@ -167,7 +174,10 @@ class GuitarixSocket {
     if (this._connected) {
       logger('TX: ', msg)
 
-      this._socket.send(JSON.stringify(msg))
+      const jsonString = JSON.stringify(msg)
+      const payload = useWebsocketBinaryFormat ? new Blob([jsonString + '\n']) : jsonString
+
+      this._socket.send(payload)
     } else {
       this._queue.unshift(msg)
     }
