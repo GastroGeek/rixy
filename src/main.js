@@ -6,6 +6,8 @@ import store from '@store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import {
+  faExpand,
+  faCompress,
   faAngleRight,
   faArrowsAlt,
   faBars,
@@ -49,7 +51,9 @@ library.add(
   faEllipsisV,
   faPowerOff,
   faTrashAlt,
-  faUndo
+  faUndo,
+  faExpand,
+  faCompress
 )
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
